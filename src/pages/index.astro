@@ -43,7 +43,9 @@ const siteConfig = {
 // Computed values
 const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMessage)}`;
 const whatsappLinkSimple = `https://wa.me/${siteConfig.whatsapp.number}`;
-const base = import.meta.env.BASE_URL;
+// Ensure base URL ends with a slash for path concatenation
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 
 // ===========================================
 // SERVICES DATA
@@ -152,7 +154,6 @@ const features = [
 
       /* Header & Hero */
       .hero {
-        background: linear-gradient(rgba(26, 95, 42, 0.65), rgba(0, 0, 0, 0.55)), url(var(--hero-bg));
         background-size: cover;
         background-position: center;
         color: white;
@@ -505,7 +506,7 @@ const features = [
   </head>
   <body>
     <!-- Hero Section -->
-    <header class="hero" style={`--hero-bg: url('${base}photos/tour-11.jpeg')`}>
+    <header class="hero" style={`background-image: linear-gradient(rgba(26, 95, 42, 0.65), rgba(0, 0, 0, 0.55)), url('${base}photos/tour-11.jpeg')`}>
       <h1>{siteConfig.businessName}</h1>
       <p class="tagline">{siteConfig.businessSubtitle}</p>
       <p class="tagline" style="font-style: italic; opacity: 0.9;">{siteConfig.tagline}</p>
