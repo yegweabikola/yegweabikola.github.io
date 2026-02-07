@@ -43,6 +43,7 @@ const siteConfig = {
 // Computed values
 const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMessage)}`;
 const whatsappLinkSimple = `https://wa.me/${siteConfig.whatsapp.number}`;
+const base = import.meta.env.BASE_URL;
 
 // ===========================================
 // SERVICES DATA
@@ -127,7 +128,7 @@ const features = [
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Yegwe Abikola – Entebbe Moto & Bicycle Tours. Local rides and real experiences in Entebbe, Uganda. Guided motorbike and bicycle tours." />
     <title>Yegwe Abikola – Entebbe Moto & Bicycle Tours</title>
@@ -151,7 +152,7 @@ const features = [
 
       /* Header & Hero */
       .hero {
-        background: linear-gradient(rgba(26, 95, 42, 0.65), rgba(0, 0, 0, 0.55)), url('/photos/tour-11.jpeg');
+        background: linear-gradient(rgba(26, 95, 42, 0.65), rgba(0, 0, 0, 0.55)), url(var(--hero-bg));
         background-size: cover;
         background-position: center;
         color: white;
@@ -504,7 +505,7 @@ const features = [
   </head>
   <body>
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero" style={`--hero-bg: url('${base}photos/tour-11.jpeg')`}>
       <h1>{siteConfig.businessName}</h1>
       <p class="tagline">{siteConfig.businessSubtitle}</p>
       <p class="tagline" style="font-style: italic; opacity: 0.9;">{siteConfig.tagline}</p>
@@ -581,7 +582,7 @@ const features = [
       <h2>📷 Tour Gallery</h2>
       <div class="gallery-grid">
         {[1,2,3,4,5,6,7,8,9,10,11,12].map((i) => (
-          <img src={`/photos/tour-${i}.jpeg`} alt={`Yegwe Abikola tour photo ${i}`} loading="lazy" />
+          <img src={`${base}photos/tour-${i}.jpeg`} alt={`Yegwe Abikola tour photo ${i}`} loading="lazy" />
         ))}
       </div>
     </section>
