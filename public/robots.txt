@@ -1,0 +1,15 @@
+# Robots.txt for Yegwe Abikola - Entebbe Moto & Bicycle Tours
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yegweabikola.github.io/website/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block access to admin/system paths (if any in future)
+Disallow: /api/
+Disallow: /_astro/

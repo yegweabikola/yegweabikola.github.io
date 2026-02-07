@@ -12,8 +12,19 @@ const siteConfig = {
   tagline: "Local rides. Real experiences.",
   subtitle: "Guided motorbike & bicycle tours for visitors who want to see Entebbe in a fun, safe, and local way.",
   location: "Entebbe",
+  country: "Uganda",
   profileEmoji: "🏍️",
   year: 2026,
+
+  // SEO Configuration
+  seo: {
+    title: "Yegwe Abikola – Entebbe Moto & Bicycle Tours | Uganda Tour Guide",
+    description: "Discover Entebbe, Uganda with Yegwe Abikola – your local guide for motorbike and bicycle tours. Visit Lake Victoria, Botanical Gardens, wildlife centers, and hidden gems. Safe, affordable, and authentic experiences.",
+    keywords: "Entebbe tours, Uganda motorbike tours, bicycle tours Entebbe, Lake Victoria tours, Entebbe tour guide, boda boda tours Uganda, Uganda travel, Entebbe sightseeing, local tours Uganda, Botanical Gardens Entebbe, Uganda Wildlife Education Centre, Mabamba Swamp, Shoebill birding Uganda, Entebbe activities, things to do in Entebbe",
+    ogImage: "photos/tour-11.jpeg",
+    locale: "en_UG",
+    type: "website",
+  },
 
   // Contact Information
   whatsapp: {
@@ -136,10 +147,136 @@ const features = [
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Yegwe Abikola – Entebbe Moto & Bicycle Tours. Local rides and real experiences in Entebbe, Uganda. Guided motorbike and bicycle tours." />
-    <title>Yegwe Abikola – Entebbe Moto & Bicycle Tours</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>{siteConfig.seo.title}</title>
+    <meta name="title" content={siteConfig.seo.title} />
+    <meta name="description" content={siteConfig.seo.description} />
+    <meta name="keywords" content={siteConfig.seo.keywords} />
+    <meta name="author" content={siteConfig.businessName} />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={import.meta.env.SITE ? `${import.meta.env.SITE}${base}` : base} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+    <link rel="apple-touch-icon" href={`${base}favicon.svg`} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={siteConfig.seo.type} />
+    <meta property="og:locale" content={siteConfig.seo.locale} />
+    <meta property="og:site_name" content={siteConfig.businessName} />
+    <meta property="og:title" content={siteConfig.seo.title} />
+    <meta property="og:description" content={siteConfig.seo.description} />
+    <meta property="og:image" content={`${base}${siteConfig.seo.ogImage}`} />
+    <meta property="og:image:alt" content={`${siteConfig.businessName} - Motorbike and Bicycle Tours in Entebbe, Uganda`} />
+    <meta property="og:url" content={import.meta.env.SITE ? `${import.meta.env.SITE}${base}` : base} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteConfig.seo.title} />
+    <meta name="twitter:description" content={siteConfig.seo.description} />
+    <meta name="twitter:image" content={`${base}${siteConfig.seo.ogImage}`} />
+    <meta name="twitter:image:alt" content={`${siteConfig.businessName} - Motorbike and Bicycle Tours in Entebbe, Uganda`} />
+    
+    <!-- Geographic Meta Tags -->
+    <meta name="geo.region" content="UG" />
+    <meta name="geo.placename" content="Entebbe, Uganda" />
+    <meta name="geo.position" content="0.0512;32.4637" />
+    <meta name="ICBM" content="0.0512, 32.4637" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1a5f2a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=yes" />
+    
+    <!-- Structured Data (JSON-LD) for Local Business -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TouristInformationCenter",
+      "name": siteConfig.businessName,
+      "alternateName": `${siteConfig.businessName} - ${siteConfig.businessSubtitle}`,
+      "description": siteConfig.seo.description,
+      "url": import.meta.env.SITE ? `${import.meta.env.SITE}${base}` : base,
+      "telephone": siteConfig.whatsapp.displayNumber,
+      "image": `${base}${siteConfig.seo.ogImage}`,
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Entebbe",
+        "addressCountry": "UG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 0.0512,
+        "longitude": 32.4637
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Entebbe",
+        "containedInPlace": {
+          "@type": "Country",
+          "name": "Uganda"
+        }
+      },
+      "sameAs": [
+        siteConfig.social.instagram,
+        siteConfig.social.tiktok
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tour Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "TouristTrip",
+              "name": "Motorbike Tours",
+              "description": "Guided motorbike tours around Entebbe including Lake Victoria beaches, local villages, and cultural experiences"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "TouristTrip",
+              "name": "Bicycle Tours",
+              "description": "Easy bicycle rides around Entebbe including Botanical Gardens, nature trails, and lake-side cycling"
+            }
+          }
+        ]
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": siteConfig.whatsapp.displayNumber,
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Luganda"]
+      }
+    })} />
+    
+    <!-- BreadcrumbList Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": import.meta.env.SITE ? `${import.meta.env.SITE}${base}` : base
+      }]
+    })} />
+    
     <style>
       * {
         margin: 0;
@@ -562,7 +699,7 @@ const features = [
   </head>
   <body>
     <!-- Hero Section -->
-    <header class="hero" style={`background-image: linear-gradient(rgba(26, 95, 42, 0.65), rgba(0, 0, 0, 0.55)), url('${base}photos/tour-11.jpeg')`}>
+    <header class="hero" role="banner" style={`background-image: linear-gradient(rgba(26, 95, 42, 0.65), rgba(0, 0, 0, 0.55)), url('${base}photos/tour-11.jpeg')`}>
       <h1>{siteConfig.businessName}</h1>
       <p class="tagline">{siteConfig.businessSubtitle}</p>
       <p class="tagline" style="font-style: italic; opacity: 0.9;">{siteConfig.tagline}</p>
@@ -582,9 +719,10 @@ const features = [
       </div>
     </header>
 
+    <main role="main">
     <!-- Welcome Section -->
-    <section class="about">
-      <h2>🏍️ 🚲 Welcome</h2>
+    <section class="about" id="welcome" aria-labelledby="welcome-heading">
+      <h2 id="welcome-heading">🏍️ 🚲 Welcome</h2>
       {siteConfig.welcome.map((paragraph) => (
         <p style="font-size: 1.1rem;">{paragraph}</p>
       ))}
@@ -596,16 +734,16 @@ const features = [
     </section>
 
     <!-- About Section -->
-    <section class="about" style="background: #f8f9fa; padding: 2.5rem 1rem;">
-      <h2>About Us</h2>
+    <section class="about" id="about" aria-labelledby="about-heading" style="background: #f8f9fa; padding: 2.5rem 1rem;">
+      <h2 id="about-heading">About Us</h2>
       {siteConfig.about.map((paragraph) => (
         <p>{paragraph}</p>
       ))}
     </section>
 
     <!-- Services Section -->
-    <section class="tours">
-      <h2>🗺️ Our Services</h2>
+    <section class="tours" id="services" aria-labelledby="services-heading">
+      <h2 id="services-heading">🗺️ Our Services</h2>
       <div class="tours-grid">
         {services.map((service) => (
           <article class="tour-card">
@@ -626,8 +764,8 @@ const features = [
     </section>
 
     <!-- Places to Tour Section -->
-    <section class="tours" style="background: white;">
-      <h2>📍 Places to Tour</h2>
+    <section class="tours" id="places" aria-labelledby="places-heading" style="background: white;">
+      <h2 id="places-heading">📍 Places to Tour</h2>
       <p style="text-align: center; color: #555; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">With Yegwe Abikola – Entebbe Moto & Bicycle Tours</p>
       <div class="tours-grid">
         {places.map((place) => (
@@ -648,18 +786,24 @@ const features = [
     </section>
 
     <!-- Photo Gallery -->
-    <section class="gallery">
-      <h2>📷 Tour Gallery</h2>
+    <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">📷 Tour Gallery</h2>
       <div class="gallery-grid">
         {[1,2,3,4,5,6,7,8,9,10,11,12].map((i) => (
-          <img src={`${base}photos/tour-${i}.jpeg`} alt={`Yegwe Abikola tour photo ${i}`} loading="lazy" />
+          <img 
+            src={`${base}photos/tour-${i}.jpeg`} 
+            alt={`Entebbe motorbike and bicycle tour by ${siteConfig.businessName} - Photo ${i} showcasing local experiences in Uganda`} 
+            loading="lazy"
+            width="400"
+            height="300"
+          />
         ))}
       </div>
     </section>
 
     <!-- Why Choose Section -->
-    <section class="why-choose">
-      <h2>Why Ride With Us?</h2>
+    <section class="why-choose" id="why-us" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why Ride With Us?</h2>
       <div class="features">
         {features.map((feature) => (
           <div class="feature">
@@ -674,8 +818,8 @@ const features = [
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
-      <h2>Ready for an Adventure?</h2>
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Ready for an Adventure?</h2>
       <p>We would love to hear from you and help you plan your tour in Entebbe.</p>
       <p style="margin-bottom: 0.5rem;">📍 Entebbe, Uganda</p>
       <a 
@@ -690,9 +834,10 @@ const features = [
         Chat on WhatsApp
       </a>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
       <p>© {siteConfig.year} {siteConfig.businessName} – {siteConfig.businessSubtitle} | <a href={whatsappLinkSimple}>{siteConfig.whatsapp.displayNumber}</a></p>
       <div class="social-links footer-social">
         <a href={siteConfig.social.instagram} class="social-link instagram" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
