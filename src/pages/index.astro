@@ -1,0 +1,642 @@
+---
+// Yegwe Abikola – Entebbe Moto & Bicycle Tours
+
+// ===========================================
+// SITE CONFIGURATION
+// ===========================================
+
+const siteConfig = {
+  // Business Info
+  businessName: "Yegwe Abikola",
+  businessSubtitle: "Entebbe Moto & Bicycle Tours",
+  tagline: "Local rides. Real experiences.",
+  subtitle: "Guided motorbike & bicycle tours for visitors who want to see Entebbe in a fun, safe, and local way.",
+  location: "Entebbe",
+  profileEmoji: "🏍️",
+  year: 2026,
+
+  // Contact Information
+  whatsapp: {
+    number: "256757348247",
+    displayNumber: "+256 757 348 247",
+    defaultMessage: "Hello! I'm interested in booking a tour with Yegwe Abikola in Entebbe.",
+  },
+
+  // Welcome / Home text
+  welcome: [
+    "Welcome to Entebbe Moto & Bicycle Tours.",
+    "Choose a motorbike tour for faster sightseeing or a bicycle tour for a relaxed and eco-friendly experience.",
+    "Our tours are perfect for solo travelers, couples, and small groups.",
+  ],
+
+  // About Section
+  about: [
+    "Yegwe Abikola means 'the one who makes things happen.'",
+    "Yegwe Abikola Entebbe Moto & Bicycle Tours was born from a deep love for nature, people, and stories. We believe that travel is not just about moving from one place to another — it is about connection, trust, and shared moments.",
+    "Every ride we offer is guided by a local who understands the land, the culture, and the heartbeat of the community. Whether you ride with us on a motorbike or a bicycle, you are not just a passenger. You are a guest, a friend, and part of the journey.",
+    "We take time to listen, to explain, to stop for photos, and to let you feel the real Entebbe beyond the usual tourist paths.",
+    "Safety, honesty, and respect are at the center of everything we do. We ride carefully, guide patiently, and serve with pride — because your experience matters to us.",
+    "When you choose Yegwe Abikola, you are choosing a local guide who works hard, cares deeply, and truly makes things happen — one ride, one story, one memory at a time.",
+  ],
+};
+
+// Computed values
+const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMessage)}`;
+const whatsappLinkSimple = `https://wa.me/${siteConfig.whatsapp.number}`;
+
+// ===========================================
+// SERVICES DATA
+// ===========================================
+
+const services = [
+  {
+    icon: "🏍️",
+    name: "Motorbike Tours",
+    items: [
+      "Guided city tours around Entebbe (Kampala city on request)",
+      "Lake Victoria beaches & sunset rides",
+      "Local villages & cultural experience",
+      "Half-day and full-day tours",
+      "Mabamba Swamp (Shoebill birding – on request)",
+    ],
+    extras: ["Helmet provided", "Slow & safe riding", "Photo stops included"],
+  },
+  {
+    icon: "🚲",
+    name: "Bicycle Tours",
+    items: [
+      "Easy bicycle rides around Entebbe",
+      "Nature & lake-side cycling",
+      "Botanical Gardens visits",
+      "Quiet local roads & fresh air",
+      "Beginner friendly",
+    ],
+    extras: ["Relaxed pace", "Eco-friendly experience"],
+  },
+];
+
+// ===========================================
+// PLACES TO TOUR
+// ===========================================
+
+const places = [
+  { name: "Entebbe Botanical Gardens", description: "Nature, birds, peaceful walks" },
+  { name: "Uganda Wildlife Education Centre (Zoo)", description: "Giraffes, lions & local wildlife" },
+  { name: "Lake Victoria Beaches", description: "Imperial, Lido & Aero Beach – sunset views 🌅" },
+  { name: "Fishing Villages", description: "Local life, culture & traditions" },
+  { name: "Mabamba Swamp", description: "Shoebill bird experience (on request 🐦)" },
+  { name: "Entebbe Town & Local Markets", description: "Culture, food & daily life" },
+  { name: "Lake Victoria Waterfront Routes", description: "Relaxed rides & photo stops" },
+  { name: "State House Entebbe (viewpoint)", description: "History from outside" },
+  { name: "Quiet Nature Roads", description: "Best for bicycle tours & fresh air" },
+];
+
+const extendedTours = [
+  { name: "Kampala City Tour", description: "Explore the capital city" },
+  { name: "Custom Long-Distance Tours", description: "Tailored routes on request" },
+];
+
+// ===========================================
+// FEATURES DATA
+// ===========================================
+
+const features = [
+  {
+    icon: "🛡️",
+    title: "Safety First",
+    description: "Quality helmets provided, well-maintained vehicles, and careful driving on all roads."
+  },
+  {
+    icon: "🗣️",
+    title: "Local Knowledge",
+    description: "Guided by a local who understands the land, the culture, and the heartbeat of the community."
+  },
+  {
+    icon: "📸",
+    title: "Photo Stops",
+    description: "We stop for photos and let you feel the real Entebbe beyond the usual tourist paths."
+  },
+  {
+    icon: "🤝",
+    title: "Connection & Trust",
+    description: "You are not just a passenger — you are a guest, a friend, and part of the journey."
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Yegwe Abikola – Entebbe Moto & Bicycle Tours. Local rides and real experiences in Entebbe, Uganda. Guided motorbike and bicycle tours." />
+    <title>Yegwe Abikola – Entebbe Moto & Bicycle Tours</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+      }
+
+      /* Header & Hero */
+      .hero {
+        background: linear-gradient(rgba(26, 95, 42, 0.65), rgba(0, 0, 0, 0.55)), url('/photos/tour-11.jpeg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 4rem 1rem 5rem;
+        text-align: center;
+        position: relative;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background: white;
+        clip-path: ellipse(60% 100% at 50% 100%);
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      }
+
+      .hero .tagline {
+        font-size: 1.1rem;
+        opacity: 0.95;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-emoji {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      /* About Section */
+      .about {
+        padding: 2rem 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .about h2 {
+        color: #1a5f2a;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .about p {
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      .profile {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1a5f2a, #f4a534);
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+
+      /* Tours Section */
+      .tours {
+        padding: 2rem 1rem;
+        background: #f8f9fa;
+      }
+
+      .tours h2 {
+        text-align: center;
+        color: #1a5f2a;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .tours-grid {
+        display: grid;
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .tour-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .tour-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      }
+
+      .tour-card h3 {
+        color: #1a5f2a;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .tour-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .tour-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .tour-card p {
+        color: #555;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .highlight-tag {
+        background: #e8f5e9;
+        color: #1a5f2a;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+      }
+
+      .tour-price {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #f4a534;
+      }
+
+      /* Photo Gallery */
+      .gallery {
+        padding: 2rem 1rem;
+        background: #f8f9fa;
+      }
+
+      .gallery h2 {
+        text-align: center;
+        color: #1a5f2a;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-grid img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .gallery-grid img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      }
+
+      /* Why Choose Section */
+      .why-choose {
+        padding: 2rem 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .why-choose h2 {
+        text-align: center;
+        color: #1a5f2a;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .features {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+      }
+
+      .feature h4 {
+        color: #1a5f2a;
+        margin-bottom: 0.25rem;
+      }
+
+      .feature p {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 2rem 1rem;
+        background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .contact h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .contact p {
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #25D366;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      }
+
+      .whatsapp-btn svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      /* Floating WhatsApp */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      .whatsapp-float svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      /* Footer */
+      footer {
+        background: #1a1a1a;
+        color: #999;
+        text-align: center;
+        padding: 1.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: #f4a534;
+        text-decoration: none;
+      }
+
+      /* Responsive Design */
+      @media (min-width: 640px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .hero {
+          min-height: 450px;
+        }
+
+        .tours-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hero {
+          padding: 6rem 2rem 7rem;
+          min-height: 500px;
+        }
+
+        .hero h1 {
+          font-size: 3.5rem;
+        }
+
+        .tours-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <header class="hero">
+      <h1>{siteConfig.businessName}</h1>
+      <p class="tagline">{siteConfig.businessSubtitle}</p>
+      <p class="tagline" style="font-style: italic; opacity: 0.9;">{siteConfig.tagline}</p>
+      <p>{siteConfig.subtitle}</p>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="about">
+      <h2>🏍️ 🚲 Welcome</h2>
+      {siteConfig.welcome.map((paragraph) => (
+        <p style="font-size: 1.1rem;">{paragraph}</p>
+      ))}
+      <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+        <span class="highlight-tag" style="font-size: 1rem;">🏍️ Ride with a local</span>
+        <span class="highlight-tag" style="font-size: 1rem;">🔍 Discover hidden places</span>
+        <span class="highlight-tag" style="font-size: 1rem;">✨ Create unforgettable memories</span>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" style="background: #f8f9fa; padding: 2.5rem 1rem;">
+      <h2>About Us</h2>
+      {siteConfig.about.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </section>
+
+    <!-- Services Section -->
+    <section class="tours">
+      <h2>🗺️ Our Services</h2>
+      <div class="tours-grid">
+        {services.map((service) => (
+          <article class="tour-card">
+            <h3>{service.icon} {service.name}</h3>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+              {service.items.map((item) => (
+                <li style="padding: 0.3rem 0; color: #555;">▸ {item}</li>
+              ))}
+            </ul>
+            <div class="highlights">
+              {service.extras.map((extra) => (
+                <span class="highlight-tag">✓ {extra}</span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Places to Tour Section -->
+    <section class="tours" style="background: white;">
+      <h2>📍 Places to Tour</h2>
+      <p style="text-align: center; color: #555; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">With Yegwe Abikola – Entebbe Moto & Bicycle Tours</p>
+      <div class="tours-grid">
+        {places.map((place) => (
+          <article class="tour-card" style="padding: 1rem 1.25rem;">
+            <h3 style="font-size: 1.1rem;">{place.name}</h3>
+            <p style="margin: 0;">{place.description}</p>
+          </article>
+        ))}
+      </div>
+      <div style="max-width: 1200px; margin: 1.5rem auto 0; text-align: center;">
+        <h3 style="color: #1a5f2a; margin-bottom: 0.75rem;">🛣️ Extended Tours</h3>
+        <div class="highlights" style="justify-content: center;">
+          {extendedTours.map((tour) => (
+            <span class="highlight-tag" style="font-size: 0.95rem; padding: 0.4rem 1rem;">{tour.name} — {tour.description}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery">
+      <h2>📷 Tour Gallery</h2>
+      <div class="gallery-grid">
+        {[1,2,3,4,5,6,7,8,9,10,11,12].map((i) => (
+          <img src={`/photos/tour-${i}.jpeg`} alt={`Yegwe Abikola tour photo ${i}`} loading="lazy" />
+        ))}
+      </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+      <h2>Why Ride With Us?</h2>
+      <div class="features">
+        {features.map((feature) => (
+          <div class="feature">
+            <span class="feature-icon">{feature.icon}</span>
+            <div>
+              <h4>{feature.title}</h4>
+              <p>{feature.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h2>Ready for an Adventure?</h2>
+      <p>We would love to hear from you and help you plan your tour in Entebbe.</p>
+      <p style="margin-bottom: 0.5rem;">📍 Entebbe, Uganda</p>
+      <a 
+        href={whatsappLink}
+        class="whatsapp-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Chat on WhatsApp
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© {siteConfig.year} {siteConfig.businessName} – {siteConfig.businessSubtitle} | <a href={whatsappLinkSimple}>{siteConfig.whatsapp.displayNumber}</a></p>
+      <p style="margin-top: 0.5rem;">🇺🇬 Made with love in Uganda</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a 
+      href={whatsappLink}
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </body>
+</html>
