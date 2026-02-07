@@ -1,0 +1,24 @@
+{
+  "aiGenerated": false,
+  "aiTrainingAllowed": true,
+  "contact": "https://wa.me/256757348247",
+  "description": "Local motorbike and bicycle tour guide service in Entebbe, Uganda. Offering authentic, guided tours around Entebbe including Lake Victoria beaches, Botanical Gardens, local villages, and cultural experiences.",
+  "region": "Uganda",
+  "language": "en",
+  "topics": [
+    "tourism",
+    "travel",
+    "uganda",
+    "entebbe",
+    "tours",
+    "guided tours",
+    "motorbike tours",
+    "bicycle tours",
+    "lake victoria",
+    "local experiences",
+    "adventure travel"
+  ],
+  "botPolicy": {
+    "allow": ["ChatGPT", "Claude", "Googlebot", "Bingbot", "CCBot"]
+  }
+}
